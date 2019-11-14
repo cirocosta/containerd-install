@@ -22,7 +22,7 @@ binaries:
 	sudo mkdir -p $(BIN_DIR)
 	sudo chown -R $(shell whoami) $(BIN_DIR)
 	curl -sSL $(RUNC_URL) -o $(BIN_DIR)/runc && chmod +x $(BIN_DIR)/runc
-	curl -sSL $(CONTAINERD_URL) | sudo tar -zvxf - -C $(BIN_DIR)
+	curl -sSL $(CONTAINERD_URL) | sudo tar -zvxf - -C $(BIN_DIR) --strip-components 1
 	curl -sSL $(CNI_URL)        | sudo tar -zvxf - -C $(BIN_DIR)
 
 
