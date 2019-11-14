@@ -1,0 +1,24 @@
+{
+  "cniVersion": "0.4.0",
+  "name": "bridge-firewalld",
+  "plugins": [
+    {
+      "type": "bridge",
+      "bridge": "containerd0",
+      "isGateway": true,
+      "ipMasq": true,
+      "ipam": {
+        "type": "host-local",
+        "subnet": "10.80.0.0/16",
+        "routes": [
+          {
+            "dst": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    {
+      "type": "firewall"
+    }
+  ]
+}

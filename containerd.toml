@@ -1,0 +1,16 @@
+disabled_plugins = ["cri"]
+state = "/run/containerd"
+
+[grpc]
+  address = "/run/containerd/contanerd.sock"
+  gid = "0"
+  uid = "0"
+
+[debug]
+  address = "/run/containerd/debug.sock"
+  level = "debug"
+
+[plugins]
+  [plugins."io.containerd.runtime.v1.linux"]
+    runtime = "runc"
+    shim = "containerd-shim"
