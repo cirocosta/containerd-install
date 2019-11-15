@@ -2,7 +2,7 @@ disabled_plugins = ["cri"]
 state = "/run/containerd"
 
 [grpc]
-  address = "/run/containerd/contanerd.sock"
+  address = "/run/containerd/containerd.sock"
 
 [debug]
   address = "/run/containerd/debug.sock"
