@@ -1,0 +1,19 @@
+[Unit]
+Description=containerd container runtime
+Documentation=https://containerd.io
+After=network.target
+
+[Service]
+ExecStartPre=-/sbin/modprobe overlay
+ExecStart=/usr/local/concourse/bin/containerd
+
+Delegate=yes
+KillMode=process
+LimitCORE=infinity
+LimitNOFILE=1048576
+LimitNPROC=infinity
+Restart=always
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
