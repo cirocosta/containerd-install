@@ -6,5 +6,4 @@ WHAT
 USAGE
 
 	make
-	sudo service containerd start
 
