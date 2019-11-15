@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 ExecStartPre=-/sbin/modprobe overlay
-ExecStart=/usr/local/concourse/bin/containerd
+ExecStart=/usr/local/concourse/bin/containerd --config=/usr/local/concourse/conf/containerd.toml
 
 Delegate=yes
 KillMode=process

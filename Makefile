@@ -32,3 +32,8 @@ configuration:
 	cp ./containerd.toml $(CONF_DIR)/containerd.toml
 	cp ./cni.json $(CONF_DIR)/cni.json
 
+
+systemd:
+	mkdir -p /etc/systemd/system
+	sudo cp ./containerd.service /etc/systemd/system/containerd.service
+	sudo systemctl daemon-reload
