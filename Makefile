@@ -10,12 +10,15 @@ BIN_DIR  = /usr/local/concourse/bin
 CONF_DIR = /usr/local/concourse/conf
 
 
-setup: binaries configuration
+all: binaries configuration systemd
 
 
 clean:
 	sudo rm -r $(BIN_DIR) || true
 	sudo rm -r $(CONF_DIR) || true
+	sudo service containerd stop || true
+	sudo rm /etc/systemd/system/containerd.service
+	sudo systemctl daemon-reload
 
 
 binaries:
@@ -37,3 +40,4 @@ systemd:
 	mkdir -p /etc/systemd/system
 	sudo cp ./containerd.service /etc/systemd/system/containerd.service
 	sudo systemctl daemon-reload
+	sudo service containerd start
