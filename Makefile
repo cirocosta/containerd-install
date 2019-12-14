@@ -8,11 +8,11 @@ CONTAINERD_URL = https://github.com/containerd/containerd/releases/download/v$(C
 INIT_URL       = https://github.com/Yelp/dumb-init/releases/download/v$(INIT_VERSION)/dumb-init_$(INIT_VERSION)_amd64
 RUNC_URL       = https://github.com/opencontainers/runc/releases/download/$(RUNC_VERSION)/runc.amd64
 
-BIN_DIR  = /usr/local/concourse/bin
-CONF_DIR = /usr/local/concourse/conf
+BIN_DIR  = /usr/local/kubelet-sample/bin
+CONF_DIR = /usr/local/kubelet-sample/conf
 
 
-all: binaries configuration systemd
+all: | binaries configuration systemd
 
 
 clean:
@@ -33,10 +33,10 @@ binaries:
 
 
 configuration:
-	sudo mkdir -p $(CONF_DIR)
+	sudo mkdir -p $(CONF_DIR)/cni
 	sudo chown -R $(shell whoami) $(CONF_DIR)
 	cp ./containerd.toml $(CONF_DIR)/containerd.toml
-	cp ./cni.json $(CONF_DIR)/cni.json
+	cp ./cni.json $(CONF_DIR)/cni/cni.json
 
 
 systemd:

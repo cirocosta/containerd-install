@@ -1,24 +1,30 @@
 {
-  "cniVersion": "0.4.0",
-  "name": "bridge-firewalld",
-  "plugins": [
-    {
-      "type": "bridge",
-      "bridge": "containerd0",
-      "isGateway": true,
-      "ipMasq": true,
-      "ipam": {
-        "type": "host-local",
-        "subnet": "10.80.0.0/16",
-        "routes": [
-          {
-            "dst": "0.0.0.0/0"
-          }
-        ]
+  "type": "bridge",
+  "bridge": "cni0",
+  "isGateway": true,
+  "ipMasq": true,
+  "promiscMode": true,
+  "ipam": {
+    "type": "host-local",
+    "ranges": [
+      [
+        {
+          "subnet": "10.88.0.0/16"
+        }
+      ],
+      [
+        {
+          "subnet": "2001:4860:4860::8888/32"
+        }
+      ]
+    ],
+    "routes": [
+      {
+        "dst": "0.0.0.0/0"
+      },
+      {
+        "dst": "::/0"
       }
-    },
-    {
-      "type": "firewall"
-    }
-  ]
+    ]
+  }
 }
