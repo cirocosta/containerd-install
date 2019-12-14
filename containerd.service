@@ -5,8 +5,8 @@ After=network.target
 
 [Service]
 Delegate=yes
-Environment=PATH=/usr/local/concourse/bin
-ExecStart=/usr/local/concourse/bin/containerd --config=/usr/local/kubelet-sample/conf/containerd.toml
+Environment=PATH=/usr/local/kubelet-sample/bin:/usr/sbin
+ExecStart=/usr/local/kubelet-sample/bin/containerd --config=/usr/local/kubelet-sample/conf/containerd.toml
 ExecStartPre=-/sbin/modprobe overlay
 KillMode=process
 LimitCORE=infinity
