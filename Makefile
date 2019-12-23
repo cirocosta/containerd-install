@@ -1,6 +1,6 @@
-CNI_VERSION        = v0.8.2
-CONTAINERD_VERSION = 1.3.0
-RUNC_VERSION       = v1.0.0-rc8
+CNI_VERSION        = v0.8.3
+CONTAINERD_VERSION = 1.3.2
+RUNC_VERSION       = v1.0.0-rc9
 INIT_VERSION       = 1.2.2
 
 CNI_URL        = https://github.com/containernetworking/plugins/releases/download/$(CNI_VERSION)/cni-plugins-linux-amd64-$(CNI_VERSION).tgz
