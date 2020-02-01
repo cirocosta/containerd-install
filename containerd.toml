@@ -1,4 +1,4 @@
-disabled_plugins = ["cri"]
+disabled_plugins = ["cri", "aufs", "btrfs", "zfs"]
 root = "/var/lib/containerd"
 state = "/run/containerd"
 
@@ -8,8 +8,3 @@ state = "/run/containerd"
 [debug]
   address = "/run/containerd/debug.sock"
   level = "debug"
-
-[plugins]
-  [plugins."io.containerd.runtime.v1.linux"]
-    runtime = "runc"
-    shim = "containerd-shim"
